@@ -1,0 +1,277 @@
+#:kivy 2.0.0
+
+
+<NavigationDrawer>
+    BoxLayout:
+        padding: 20, 20, 20, 20  
+        spacing: 10  
+        orientation: 'vertical'
+        MDList:
+            size_hint_y: 30
+            height: self.minimum_height
+            OneLineListItem:
+                height: dp(64)
+                MDIconButton:
+                   
+                    icon: 'comment-multiple-outline'
+                    pos_hint: {'center_y': 0.8}
+                    halign: 'left'
+                    on_press:
+                        root.nav_drawer.set_state("close")
+                        root.screen_manager.current = "Chats"
+                    Label:
+                        text: "Chats"
+                        size_hint: None, None
+                        size: 100, 50
+                        pos_hint: {'center_x': 0.2}
+                        halign: 'right'
+                        color: app.theme_cls.primary_color
+                    
+                
+            OneLineListItem:
+                height: dp(64)
+                MDIconButton:
+                    
+                    icon: 'account-multiple'
+                    pos_hint: {'center_y': 0.8}
+                    halign: 'left'
+                    on_press:
+                        root.nav_drawer.set_state("close")
+                        root.screen_manager.current = "Friends"
+                    Label:
+                        text: "Friends"
+                        size_hint: None, None
+                        size: 100, 50
+                        pos_hint: {'center_x': 0.2}
+                        halign: 'right'
+                        color: app.theme_cls.primary_color
+                    
+            OneLineListItem:
+                height: dp(64)
+                MDIconButton:
+                    icon: "chat"
+                    pos_hint: {'center_y': 0.8}
+                    halign: 'left'
+                    on_press:
+                        root.nav_drawer.set_state("close")
+                        root.screen_manager.current = "Inbox"
+                    Label:
+                        text: 'Inbox'
+                        size_hint: None, None
+                        size: 100, 50
+                        pos_hint: {'center_x': 0.2}
+                        halign: 'right'
+                        color: app.theme_cls.primary_color
+            
+            OneLineListItem:
+                height: dp(64)
+                MDIconButton:
+                    icon: "check-all"
+                    pos_hint: {'center_y': 0.8}
+                    halign: 'left'
+                    on_press:
+                        root.nav_drawer.set_state("close")
+                        root.screen_manager.current = "Sent"
+                    Label:
+                        text: 'Sent'
+                        size_hint: None, None
+                        size: 100, 50
+                        pos_hint: {'center_x': 0.2}
+                        halign: 'right'
+                        color: app.theme_cls.primary_color
+
+<LoginScreen>:
+    name: "login"
+    username: username
+    password: password
+
+    MDScreen:
+        md_bg_color: [250, 253, 253, 1]
+
+   
+    MDIcon:
+        icon: 'icon.png'
+        font_size: '70sp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+    MDLabel:
+        text: "Welcome to Bloom"
+        font_style: "H6"
+        halign: "center"
+        pos_hint: {"center_x": 0.5, "center_y": 0.75}
+        text_color_anim: True
+
+    MDTextField:
+        id: username
+        hint_text: "Username"
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        size_hint_x: None
+        width: 300
+        helper_text: "wrong username"
+        helper_text_mode: "on_error"
+
+    MDTextField:
+        id: password
+        hint_text: "Password"
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        size_hint_x: None
+        width: 300
+        password: True
+        helper_text: "incorrect password"
+        helper_text_mode: "on_error"
+
+    MDRectangleFlatButton:
+        text: "Log in"
+        pos_hint: {"center_x": 0.4, "center_y": 0.4}
+        on_press: root.verify_credentials()
+    MDRectangleFlatButton:
+        text: "Register"
+        pos_hint: {"center_x": 0.6, "center_y": 0.4}
+        on_press: app.switch_to_signup_screen()
+
+<SignupScreen>:
+    name: "singup"
+    username: username
+    password: password
+    confirm: confirm
+
+    MDScreen:
+        md_bg_color: [250, 253, 253, 1]
+    
+    MDIcon:
+        icon: 'icon.png'
+        font_size: '70sp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+    MDLabel:
+        text: "Join Bloom"
+        font_style: "H6"
+        halign: "center"
+        pos_hint: {"center_x": 0.5, "center_y": 0.78}
+        text_color_anim: True
+
+    MDTextField:
+        id: username
+        hint_text: "Username"
+        pos_hint: {"center_x": 0.5, "center_y": 0.65}
+        size_hint_x: None
+        width: 300
+
+    MDTextField:
+        id: password
+        hint_text: "Password"
+        pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        size_hint_x: None
+        width: 300
+        password: True
+
+    MDTextField:
+        id: confirm
+        hint_text: "Confirm Password"
+        pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        size_hint_x: None
+        width: 300
+        password: True
+        helper_text: "Passwords dont match"
+        helper_text_mode: "on_error"
+
+    MDRectangleFlatButton:
+        text: "Sign Up"
+        pos_hint: {"center_x": 0.5, "center_y": 0.35}
+        on_press: root.verify_pass()
+
+    MDIconButton:
+        icon:'keyboard-backspace'
+        pos_hint: {'top': 1, 'left': 1}
+        on_press: app.switch_to_login_screen()
+
+<mainScreen>
+    name: "main"
+
+    MDTopAppBar:
+        pos_hint: {"top": 1}
+        elevation: 4
+        title: "Bloom"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            id: screen_manager
+
+            MDScreen:
+                name: "Chats"
+                MDLabel:
+                    text: "Chats appear here"
+                    halign: "center"
+                MDFloatLayout:
+                    MDFloatingActionButton:
+                        icon:'pencil'
+                        pos_hint: {'right': 0.95, 'y': 0.05}
+                        on_press: app.switch_to_newchat_screen()
+                                    
+    
+            MDScreen:
+                name: "Friends"
+
+                MDLabel:
+                    text: "Friends"
+                    halign: "center"
+
+            MDScreen:
+                name: "Sent"
+
+                MDLabel:
+                    text: "Sent messages to appear here"
+                    halign: "center"
+            MDScreen:
+                name: "Inbox"
+
+                MDLabel:
+                    text: "Inbox"
+                    halign: "center"
+                
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+
+            NavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
+
+<NewMessageScreen>:
+    name: "new_message_screen"
+    recipient: recipient
+    subject: subject
+    message: message
+    MDTextField:
+        id: recipient
+        mode: "fill"
+        hint_text: "To:"
+        pos_hint: {"center_x": 0.5, "center_y": 0.8}
+        size_hint_x: 0.8
+        
+    MDTextField:
+        id: subject
+        mode: "rectangle"
+        hint_text: "Subject:"
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        size_hint_x: 0.8
+        
+    MDTextField:
+        id: message
+        hint_text: "Message:"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        size_hint_x: 0.8
+        multiline: True
+        
+    MDFillRoundFlatButton:
+        text: "Send"
+        pos_hint: {"center_x": 0.5, "center_y": 0.2}
+        on_release: root.send_message()
+    MDIconButton:
+        icon:'keyboard-backspace'
+        pos_hint: {'top': 1, 'left': 1}
+        on_press: app.switch_to_main_screen()
