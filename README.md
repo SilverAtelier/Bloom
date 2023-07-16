@@ -20,15 +20,20 @@ Prerequisites
 
 ``` pip install requirements.txt```
 ### Screenshots
-![1.](https://drive.google.com/file/d/1GgtryRhuGTD1pLZOqjw3aHkxMAiBIr99/view?usp=sharing)
+<div align=center>
+  
+![1.](https://drive.google.com/uc?export=download&id=1GgtryRhuGTD1pLZOqjw3aHkxMAiBIr99)
 
-![2.](https://drive.google.com/file/d/1juGwKd-Sj__xdzaAt883kL8Am4H4Hpx3/view?usp=sharing)
+![2.](https://drive.google.com/uc?export=download&id=1_7k2_8M6Bi5iSjGpoMikZdzkTf9pqx0I)
 
-![3.](https://drive.google.com/file/d/15WC5HpQyriMnQKEFt_KmJac4B5_SxYrw/view?usp=sharing)
+![3.](https://drive.google.com/uc?export=download&id=1juGwKd-Sj__xdzaAt883kL8Am4H4Hpx3)
 
-![4.](https://drive.google.com/file/d/1ZmehW1x9xoBOJ1XqiR6GJXFCvZEouSe8/view?usp=sharing)
+![4.](https://drive.google.com/uc?export=download&id=15WC5HpQyriMnQKEFt_KmJac4B5_SxYrw)
 
-![5.](https://drive.google.com/file/d/1_7k2_8M6Bi5iSjGpoMikZdzkTf9pqx0I/view?usp=sharing)
+![5.](https://drive.google.com/uc?export=download&id=1ZmehW1x9xoBOJ1XqiR6GJXFCvZEouSe8)
+
+</div>
+
 
 ## Acknowledgments
 I would like to express my gratitude to [Dr.Patric Bii] for their guidance and support throughout this project.
